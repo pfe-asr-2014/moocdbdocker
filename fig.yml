@@ -1,0 +1,12 @@
+web:
+  image: tsp-moocdb-web
+  command: 
+  volumes:
+    - ./workspace:/code
+  ports:
+    - "8080:80"
+  links:
+    - tspmoocdbpostgres
+
+tspmoocdbpostgres:
+  image: tsp-moocdb-postgres
