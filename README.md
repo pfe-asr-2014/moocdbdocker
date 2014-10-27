@@ -20,13 +20,14 @@ Launch:
 ```
 
 Use:
-Visit http://localhost:8080/phppgadmin/
-Login with credentials ```pg_reader/tpinfint```
+* Visit http://localhost:8080/
+* Login to phpPgAdmin with:
+  *  ```pg_reader/tpinfint``` for read access
+  *  ```pg_writer/tpinfint``` for read/write access
 
 TODO
 ====
 
-* Integrate site web
 * Integrate manual
 * Explain how to use it with boot2docker (script)
 * Choose a License
