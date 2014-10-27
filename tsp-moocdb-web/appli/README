@@ -1,0 +1,22 @@
+This application provides a SQL query tutor which runs using a
+postgresql databse server on localhost.
+
+
+This is free software Copyright (c) 2014, Telecom
+Sudparis, distributed under the MIT license (see accompanying
+license.txt file).
+
+
+This application provides a SQL learning environment (interface is
+currently in french) written in HTML and Javascript, which can be used
+to exercise SQL queries using a server.
+
+This application is part of a larger project that provides a vagrant 
+environment to access the webserver and the database on a light virtual
+machine.
+
+Please refer to : https://fusionforge.int-evry.fr/projects/bdsqlwiz/
+for project reference.
+
+See a demo at : https://fusionforge.int-evry.fr/www/bdsqlwiz/
+

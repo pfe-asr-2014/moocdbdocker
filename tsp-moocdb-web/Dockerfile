@@ -14,6 +14,15 @@ RUN sed -i "s/\$conf\['extra_login_security'\] = true;/\$conf\['extra_login_secu
 RUN sed -i "s/\$conf\['servers'\]\[0\]\['desc'\] = 'My-distant-server';/\$conf\['servers'\]\[0\]\['desc'\] = 'TSP MOOCDB';/g" /etc/phppgadmin/config.inc.php
 RUN sed -i "s/\$conf\['servers'\]\[0\]\['host'\] = 'localhost';/\$conf\['servers'\]\[0\]\['host'\] = 'tspmoocdbpostgres_1';/g" /etc/phppgadmin/config.inc.php
 
+# Copy th eindex file
+COPY ./index.html /var/www/
+
+# Copy the bdsqlwiz application
+COPY ./appli /var/www/bdsqlwiz
+
+# Set owner of web files
+RUN chown -R www-data. /var/www
+
 EXPOSE 80
 
 ENV APACHE_RUN_USER www-data
