@@ -1,4 +1,4 @@
-web:
+tspmoocdbweb:
   image: tsp-moocdb-web
   command: 
   volumes:

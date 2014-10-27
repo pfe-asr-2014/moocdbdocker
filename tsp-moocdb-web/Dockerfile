@@ -14,7 +14,14 @@ RUN sed -i "s/\$conf\['extra_login_security'\] = true;/\$conf\['extra_login_secu
 RUN sed -i "s/\$conf\['servers'\]\[0\]\['desc'\] = 'My-distant-server';/\$conf\['servers'\]\[0\]\['desc'\] = 'TSP MOOCDB';/g" /etc/phppgadmin/config.inc.php
 RUN sed -i "s/\$conf\['servers'\]\[0\]\['host'\] = 'localhost';/\$conf\['servers'\]\[0\]\['host'\] = 'tspmoocdbpostgres_1';/g" /etc/phppgadmin/config.inc.php
 
-# Copy th eindex file
+# Set the default ServerName
+RUN echo "ServerName tspmoocdbweb" >> /etc/apache2/apache2.conf
+
+# Lower mpm-prefork minimum servers
+RUN sed -i "s/StartServers          5/StartServers          1/g" /etc/apache2/apache2.conf
+RUN sed -i "s/MinSpareServers       5/MinSpareServers       1/g" /etc/apache2/apache2.conf
+
+# Copy the index file
 COPY ./index.html /var/www/
 
 # Copy the bdsqlwiz application
