@@ -1,5 +1,3 @@
-
-
 CREATE TABLE acteurs (
   id integer NOT NULL,
   nom varchar(35) default NULL,
