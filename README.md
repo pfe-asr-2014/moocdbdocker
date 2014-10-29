@@ -1,4 +1,6 @@
 
+TODO describe what this is (hint : port to docker of https://fusionforge.int-evry.fr/projects/moocbdvm/ which uses Vagrant)
+
 Using
 =====
 
@@ -44,5 +46,5 @@ TODO
 * Integrate manual
 * Explain how to use it with boot2docker (script)
 * Choose a License
-* Improve this README (a lot)
+* Improve this README (a lot) -> check the embedded 'TODO's
 * more…
