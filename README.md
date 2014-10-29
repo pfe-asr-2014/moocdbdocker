@@ -35,7 +35,7 @@ which executes several sql commands and that's all!
 So if you want to change the generated schema, all you have to do is to change this  ```initdb-setupdb.sh``` (or add another one, if you want to
 separate your logic in several files).
 
-The other container (```stp-moocdb-web```) runs the bdsqlwiz PHP application (directory ```./appli```), PhpPgAdmin and an index for our users.
+The other container (```tsp-moocdb-web```) runs the bdsqlwiz PHP application (directory ```./appli```), PhpPgAdmin and an index for our users.
 You can update the application easily: just change the content of the directory and you're ready to ship your new content!
 
 TODO
