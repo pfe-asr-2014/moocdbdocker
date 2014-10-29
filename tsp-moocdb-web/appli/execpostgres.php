@@ -8,14 +8,14 @@
 print '<html> <head> <title>R&eacute;sultat de l&#39;ex&eacute;cution</title> ';
 print '   <link rel="stylesheet" type="text/css" href="contenu.css" />';
 print '     </head><body>';
-$server='tspmoocdbpostgres_1';
+$server='PGSERVER';
 
 // The database to query is selected in the interface
 $database=strtolower($_POST['database']);
 
 // Change this to fit your setup
-$user='pg_reader';
-$pass= 'tpinfint';
+$user='PGUSER';
+$pass= 'PGPASS';
 print '<h2>R&eacute;sultat de l&#39;ex&eacute;cution</h2>';
 $connection_string='host='.$server.' dbname='.$database.' user='.$user.' password='.$pass;
 //print "<p><b>".$connection_string."</b></p>";

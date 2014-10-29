@@ -31,6 +31,11 @@ COPY ./index.html /var/www/
 # Copy the bdsqlwiz application
 COPY ./appli /var/www/bdsqlwiz
 
+# Connect bdsqlwiz to docker postgres
+RUN sed -i "s/PGSERVER/tsp-moocdb-postgres/g" /var/www/bdsqlwiz/execpostgres.php
+RUN sed -i "s/PGUSER/pg_reader/g" /var/www/bdsqlwiz/execpostgres.php
+RUN sed -i "s/PGPASS/tpinfint/g" /var/www/bdsqlwiz/execpostgres.php
+
 # Set owner of web files
 RUN chown -R www-data. /var/www
 
