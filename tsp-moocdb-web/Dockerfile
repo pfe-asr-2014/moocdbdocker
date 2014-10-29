@@ -12,7 +12,7 @@ RUN sed -i "s/\$conf\['extra_login_security'\] = true;/\$conf\['extra_login_secu
 
 # Connect phppgadmin to docker postgres 
 RUN sed -i "s/\$conf\['servers'\]\[0\]\['desc'\] = 'My-distant-server';/\$conf\['servers'\]\[0\]\['desc'\] = 'TSP MOOCDB';/g" /etc/phppgadmin/config.inc.php
-RUN sed -i "s/\$conf\['servers'\]\[0\]\['host'\] = 'localhost';/\$conf\['servers'\]\[0\]\['host'\] = 'tspmoocdbpostgres_1';/g" /etc/phppgadmin/config.inc.php
+RUN sed -i "s/\$conf\['servers'\]\[0\]\['host'\] = 'localhost';/\$conf\['servers'\]\[0\]\['host'\] = 'tsp-moocdb-postgres';/g" /etc/phppgadmin/config.inc.php
 
 # Set the default ServerName
 RUN echo "ServerName tspmoocdbweb" >> /etc/apache2/apache2.conf

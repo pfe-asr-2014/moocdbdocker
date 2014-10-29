@@ -2,21 +2,16 @@
 Using
 =====
 
-Install fig:
-```sh
-curl -L https://github.com/docker/fig/releases/download/1.0.0/fig-`uname -s`-`uname -m` > ./fig
-chmod +x ./fig
-```
-
 Build docker images (can be long):
 ```sh
 docker build -t tsp-moocdb-postgres tsp-moocdb-postgres/
 docker build -t tsp-moocdb-web tsp-moocdb-web
 ```
 
-Launch:
+Launch (order is important):
 ```sh
-./fig up
+docker run -d --name tsp-moocdb-postgres tsp-moocdb-postgres
+docker run -d -p 8080:80 --name web --link tsp-moocdb-postgres:tsp-moocdb-postgres tsp-moocdb-web
 ```
 
 Use:
