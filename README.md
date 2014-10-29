@@ -20,6 +20,24 @@ Use:
   *  ```pg_reader/tpinfint``` for read access
   *  ```pg_writer/tpinfint``` for read/write access
 
+How does it works and how can I update the content
+==================================================
+
+All the database stuff is in the vm ```tsp-moocdb-postgres```. This container is based on
+[the official postgresql image](https://registry.hub.docker.com/_/postgres/) which provide a simple way to
+execute script on the creation of the vm: place a ```.sh``` shell script in ```/docker-entrypoint-initdb.d```
+and it will be executed at creation.
+
+It is exactly how we do it! We just drop the file 
+[```initdb-setupdb.sh```](https://github.com/pfe-asr-2014/moocdbdocker/blob/master/tsp-moocdb-postgres/initdb-setupdb.sh)
+which execute several sql commands and that's all!
+
+So if you want to change the generated schema, all there is to do is to change this  ```initdb-setupdb.sh``` (or add another one, if you want to
+separate your logic in several files).
+
+The other vm (```stp-moocdb-web```) contain the php application (directory ```./appli```) and an index for our users.
+You can update the application easily: just change the content of the directory and your ready to ship your new content!
+
 TODO
 ====
 
