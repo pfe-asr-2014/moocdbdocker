@@ -43,8 +43,31 @@ Use:
   *  ```pg_reader/tpinfint``` for read access
   *  ```pg_writer/tpinfint``` for read/write access
 
+Updating the containers
+=======================
+(for those who wants to play with the latest and greatest)
+
+These manipulations are done in the ```moocdbdocker``` (refer to the [install](#install) to know how to access this directory).
+
+To update your containers, type the followings commands:
+
+```
+git pull
+
+docker build -t tsp-moocdb-postgres tsp-moocdb-postgres/
+docker build -t tsp-moocdb-web tsp-moocdb-web/
+
+docker stop tsp-moocdb-postgres tsp-moocdb-web
+
+docker run -d --name tsp-moocdb-postgres tsp-moocdb-postgres
+docker run -d -p 8080:80 --name web --link tsp-moocdb-postgres:tsp-moocdb-postgres tsp-moocdb-web
+```
+
+You're ready to play with more awesomeness !
+
 How does it works and how can I update the content
 ==================================================
+(for those who wants to maintain these containers)
 
 All the database stuff is in ```tsp-moocdb-postgres```. This container is based on
 [the official postgresql image](https://registry.hub.docker.com/_/postgres/) which provides a simple way to
