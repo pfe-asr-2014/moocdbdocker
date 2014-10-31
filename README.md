@@ -2,6 +2,25 @@
 Docker port of the Virtual machine environement devised for the Telecom SudParis' Relational Databases MOOC (originally based on Vagrant).
 The original project can be found at https://fusionforge.int-evry.fr/projects/moocbdvm/
 
+Install
+=======
+
+Before using these containers, you need to have docker installed on your computer.
+[Installation instruction are available on the official website](https://docs.docker.com/installation/), simply choose your OS and follow the procedure :).
+
+If your are on Windows or MacOS, the following manipulation need to be done in the boot2docker VM. To access your vm:
+
+* On MacOS: in a shell, type ```boot2docker init; boot2docker start; boot2docker ssh```
+* On Windows, open the "Start boot2docker" shortcut (on your desktop or in the windows menu).
+
+When you have a docker command available, type the following commands to setup the containers:
+
+```
+git clone https://github.com/pfe-asr-2014/moocdbdocker.git
+cd moocdbdocker/
+```
+
+You can now pass to the next part: Using these containers !
 
 Using
 =====
