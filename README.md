@@ -1,5 +1,7 @@
 
-TODO describe what this is (hint : port to docker of https://fusionforge.int-evry.fr/projects/moocbdvm/ which uses Vagrant)
+Docker port of the Virtual machine environement devised for the Telecom SudParis' Relational Databases MOOC (originally based on Vagrant).
+The original project can be found at https://fusionforge.int-evry.fr/projects/moocbdvm/
+
 
 Using
 =====
