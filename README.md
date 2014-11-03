@@ -1,14 +1,14 @@
-
-Docker port of the Virtual machine environement devised for the Telecom SudParis' Relational Databases MOOC (originally based on Vagrant).
+Docker port of the virtual machine environement devised for the Telecom SudParis' Relational Databases MOOC (originally based on Vagrant).
 The original project can be found at https://fusionforge.int-evry.fr/projects/moocbdvm/
 
 Install
 =======
 
-Before using these containers, you need to have docker installed on your computer.
-[Installation instruction are available on the official website](https://docs.docker.com/installation/), simply choose your OS and follow the procedure :).
+Before using these containers, you need to install:
+* git: Choose your OS on [the official website](http://git-scm.com/downloads) and follow the instructions.
+* docker: [Installation instruction are available on the official website](https://docs.docker.com/installation/), simply choose your OS and follow the procedure :). 
 
-If your are on Windows or MacOS, the following manipulation need to be done in the boot2docker VM. To access your vm:
+If your are on Windows or MacOS, the following manipulation needs to be done in the boot2docker VM. To access your vm:
 
 * On MacOS: in a shell, type ```boot2docker init; boot2docker start; boot2docker ssh```
 * On Windows, open the "Start boot2docker" shortcut (on your desktop or in the windows menu).
@@ -31,7 +31,7 @@ docker build -t tsp-moocdb-postgres tsp-moocdb-postgres/
 docker build -t tsp-moocdb-web tsp-moocdb-web/
 ```
 
-Launch (order is important):
+Launch (the order is important):
 ```sh
 docker run -d --name tsp-moocdb-postgres tsp-moocdb-postgres
 docker run -d -p 8080:80 --name web --link tsp-moocdb-postgres:tsp-moocdb-postgres tsp-moocdb-web
