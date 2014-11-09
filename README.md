@@ -5,8 +5,8 @@ Install
 =======
 
 Before using these containers, you need to install:
-* git: Choose your OS on [the official website](http://git-scm.com/downloads) and follow the instructions.
-* docker: [Installation instruction are available on the official website](https://docs.docker.com/installation/), simply choose your OS and follow the procedure :). 
+* (if you are using Linux) ```git```: Choose your OS on [the official website](http://git-scm.com/downloads) and follow the istructions.
+* ```docker```: [Installation instruction are available on the official website](https://docs.docker.com/installation/), simply choose your OS and follow the procedure :).
 
 If your are on Windows or MacOS, the following manipulation needs to be done in the boot2docker VM. To access your vm:
 
@@ -38,8 +38,8 @@ docker run -d -p 8080:80 --name web --link tsp-moocdb-postgres:tsp-moocdb-postgr
 ```
 
 Use:
-* On Linux, visit http://localhost:8080/
-* On Windows and OS X, get the host ip with ```boot2docker ip``` and visit http://host_ip:8080/
+* On Linux, visit [http://localhost:8080/](http://localhost:8080/)
+* On Windows and OS X, get the host ip with ```boot2docker ip``` and visit http://host_ip:8080/ (probably [http://192.168.59.103:8080/](http://192.168.59.103:8080/))
 * Login to phpPgAdmin with:
   *  ```pg_reader/tpinfint``` for read access
   *  ```pg_writer/tpinfint``` for read/write access
