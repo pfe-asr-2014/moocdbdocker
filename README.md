@@ -38,7 +38,8 @@ docker run -d -p 8080:80 --name web --link tsp-moocdb-postgres:tsp-moocdb-postgr
 ```
 
 Use:
-* Visit http://localhost:8080/
+* On Linux, visit http://localhost:8080/
+* On Windows and OS X, get the host ip with ```boot2docker ip``` and visit http://host_ip:8080/
 * Login to phpPgAdmin with:
   *  ```pg_reader/tpinfint``` for read access
   *  ```pg_writer/tpinfint``` for read/write access
