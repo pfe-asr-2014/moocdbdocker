@@ -1,5 +1,8 @@
 POSTGRES="gosu postgres postgres"
 
+# Fix acl
+echo "host all all 0.0.0.0/0 md5" >> "$PGDATA"/pg_hba.conf
+
 # Initialize the databases
 $POSTGRES --single < /db-creation/script-init.sql
 # Populate the databases
