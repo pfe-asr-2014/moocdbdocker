@@ -5,8 +5,8 @@ Install
 =======
 
 Before using these containers, you need to install:
-* (if you are using Linux) ```git```: Choose your OS on [the official website](http://git-scm.com/downloads) and follow the istructions.
-* ```docker```: [Installation instruction are available on the official website](https://docs.docker.com/installation/), simply choose your OS and follow the procedure :).
+* (if you are using Linux) ```git```: Choose your OS on [the official website](http://git-scm.com/downloads) and follow the instructions.
+* ```docker```: [Installation instructions are available on the official website](https://docs.docker.com/installation/), simply choose your OS and follow the procedure :).
 
 If your are on Windows or MacOS, the following manipulation needs to be done in the boot2docker VM. To access your vm:
 
@@ -66,9 +66,9 @@ docker run -d -p 8080:80 --name web --link tsp-moocdb-postgres:tsp-moocdb-postgr
 
 You're ready to play with more awesomeness !
 
-How does it works and how can I update the content
-==================================================
-(for those who wants to maintain these containers)
+How does it work and how can I update the content
+=================================================
+(for those who want to maintain these containers)
 
 All the database stuff is in ```tsp-moocdb-postgres```. This container is based on
 [the official postgresql image](https://registry.hub.docker.com/_/postgres/) which provides a simple way to
