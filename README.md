@@ -85,6 +85,13 @@ separate your logic in several files).
 The other container (```tsp-moocdb-web```) runs the bdsqlwiz PHP application (directory ```./appli```), PhpPgAdmin and an index for our users.
 You can update the application easily: just change the content of the directory and you're ready to ship your new content!
 
+Watching Apache logs
+====================
+
+```sh
+docker logs -f tsp-moocdb-web
+```
+
 TODO
 ====
 
