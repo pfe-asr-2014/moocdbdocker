@@ -4,8 +4,7 @@ FROM debian:wheezy
 # Install needed packages
 RUN \
   apt-get update && \
-  apt-get install phppgadmin -y --force-yes --no-install-recommends && \
-  rm -rf /var/lib/apt/lists/*
+  apt-get install phppgadmin -y --force-yes --no-install-recommends
 
 # Let phppgadmin be accessible for everyone
 RUN sed -i "s/# allow from all/allow from all/g" /etc/apache2/conf.d/phppgadmin
@@ -30,16 +29,22 @@ RUN ln -sf /dev/stderr /var/log/apache2/error.log
 # Copy the index file
 COPY ./index/* /var/www/
 
-# Copy the bdsqlwiz application
-COPY ./appli /var/www/bdsqlwiz
+# Checkout the bdsqlwiz application from its git repo
+RUN \
+  apt-get install git -y --force-yes --no-install-recommends && \
+  cd /tmp && git clone http://fusionforge.int-evry.fr/anonscm/git/bdsqlwiz/bdsqlwiz.git && \
+  cp -r /tmp/bdsqlwiz/appli /var/www/bdsqlwiz && \
+  rm -rf /tmp/bdsqlwiz
 
 # Connect bdsqlwiz to docker postgres
-RUN sed -i "s/PGSERVER/tsp-moocdb-postgres/g" /var/www/bdsqlwiz/execpostgres.php
-RUN sed -i "s/PGUSER/pg_reader/g" /var/www/bdsqlwiz/execpostgres.php
-RUN sed -i "s/PGPASS/tpinfint/g" /var/www/bdsqlwiz/execpostgres.php
+RUN sed -i "s/\$server='localhost';/\$server='tsp-moocdb-postgres';/g" /var/www/bdsqlwiz/execpostgres.php
 
 # Set owner of web files
 RUN chown -R www-data. /var/www
+
+RUN apt-get remove -y git
+
+RUN rm -rf /var/lib/apt/lists/*
 
 EXPOSE 80
 
