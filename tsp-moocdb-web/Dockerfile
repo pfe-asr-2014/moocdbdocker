@@ -27,7 +27,7 @@ RUN ln -sf /dev/stdout /var/log/apache2/access.log
 RUN ln -sf /dev/stderr /var/log/apache2/error.log
 
 # Copy the index file
-COPY ./index/* /var/www/
+COPY index /var/www/
 
 # Checkout the bdsqlwiz application from its git repo
 RUN \
