@@ -22,10 +22,6 @@ RUN sed -i "s/StartServers          5/StartServers          1/g" /etc/apache2/ap
 RUN sed -i "s/MinSpareServers       5/MinSpareServers       1/g" /etc/apache2/apache2.conf
 RUN sed -i "s/MaxSpareServers      10/MaxSpareServers       1/g" /etc/apache2/apache2.conf
 
-# Forward request and error logs to docker log collector
-RUN ln -sf /dev/stdout /var/log/apache2/access.log
-RUN ln -sf /dev/stderr /var/log/apache2/error.log
-
 # Copy the index file
 COPY index /var/www/
 
@@ -45,6 +41,11 @@ RUN chown -R www-data. /var/www
 RUN apt-get remove -y git
 
 RUN rm -rf /var/lib/apt/lists/*
+
+# Forward request and error logs to docker log collector
+RUN ln -sf /dev/stdout /var/log/apache2/access.log
+RUN ln -sf /dev/stderr /var/log/apache2/error.log
+
 
 EXPOSE 80
 
